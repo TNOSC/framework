@@ -31,7 +31,8 @@ public interface IDispatcher
     /// <param name="command">The command to be sent.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    Task SendAsync<T>(T command, CancellationToken cancellationToken = default) where T : class, ICommand;
+    Task SendAsync<T>(T command, CancellationToken cancellationToken = default) 
+        where T : class, ICommand;
     /// <summary>
     /// Publishes a specified event asynchronously.
     /// </summary>
@@ -39,7 +40,8 @@ public interface IDispatcher
     /// <param name="event">The event to be published.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : class, IEvent;
+    Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) 
+        where T : class, IEvent;
     /// <summary>
     /// Executes the specified query asynchronously.
     /// </summary>

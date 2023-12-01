@@ -29,5 +29,6 @@ public interface IEventDispatcher
     /// <param name="event">The event to be published.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    Task PublishAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : class, IEvent;
+    Task PublishAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default)
+        where TEvent : class, IEvent;
 }
