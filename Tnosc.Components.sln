@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractrions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractrions.ApplicationService\Tnosc.Components.Abstractrions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB} = {8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}
+		{C94CBEE2-7EFF-4CD1-9503-133636023497} = {93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}
+	EndGlobalSection
+EndGlobal
