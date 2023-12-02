@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstraction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractrions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractrions.ApplicationService\Tnosc.Components.Abstractrions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.ApplicationService", "src\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj", "{8DA0F71E-7338-468E-B3E7-30639C5657BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +26,15 @@ Global
 		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA0F71E-7338-468E-B3E7-30639C5657BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA0F71E-7338-468E-B3E7-30639C5657BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA0F71E-7338-468E-B3E7-30639C5657BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA0F71E-7338-468E-B3E7-30639C5657BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB} = {8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}
 		{C94CBEE2-7EFF-4CD1-9503-133636023497} = {93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}
+		{CE050A2E-C249-4DAA-B6E7-BE8A4619FC20} = {8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}
+		{8DA0F71E-7338-468E-B3E7-30639C5657BC} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
 	EndGlobalSection
 EndGlobal
