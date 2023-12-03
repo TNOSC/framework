@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Tnosc.Components.Abstractrions.ApplicationService</PackageId>
+    <Authors>Ahmed HEDFI</Authors>
+    <Description>Defining the abstractions in the application service layer</Description>
+    <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
+    <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
+    <PackageTags>Query, Command, Event, Dispatcher</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+</Project>
