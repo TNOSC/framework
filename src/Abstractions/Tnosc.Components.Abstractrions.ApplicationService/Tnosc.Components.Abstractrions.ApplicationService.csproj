@@ -14,5 +14,9 @@
     <PackageTags>Query, Command, Event, Dispatcher</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 </Project>
