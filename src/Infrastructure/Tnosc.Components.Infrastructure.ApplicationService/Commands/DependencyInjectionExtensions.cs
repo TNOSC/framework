@@ -28,9 +28,9 @@ public static class DependencyInjectionExtensions
     /// <summary>
     /// Adds command-related services to the specified IServiceCollection.
     /// </summary>
-    /// <param name="services">The IServiceCollection to add services to.</param>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
     /// <param name="assemblies">The assemblies containing command handlers to be registered.</param>
-    /// <returns>The modified IServiceCollection.</returns>
+    /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
     public static IServiceCollection AddCommands(this IServiceCollection services, IEnumerable<Assembly> assemblies)
     {
         // Register the ICommandDispatcher with a singleton lifetime.
