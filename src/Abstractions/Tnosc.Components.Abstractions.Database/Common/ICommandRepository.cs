@@ -1,0 +1,46 @@
+/*
+ Copyright (c) 2023 Ahmed HEDFI (ahmed.hedfi@gmail.com)
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+namespace Tnosc.Components.Abstractions.Database.Common;
+/// <summary>
+/// Represents a command-specific repository interface, inheriting from a generic repository for entities.
+/// </summary>
+/// <typeparam name="TEntity">The type of entity handled by the repository.</typeparam>
+/// <typeparam name="TKey">The type of the entity's primary key.</typeparam>
+public interface ICommandRepository<TEntity, TKey> : IRepository<TEntity, TKey>
+    where TEntity : class
+{
+    /// <summary>
+    /// Asynchronously adds a new entity to the repository.
+    /// </summary>
+    /// <param name="entity">The entity to be added.</param>
+    /// <param name="cancellationToken">The cancellation token for the asynchronous operation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task AddAsync(TEntity entity, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Updates an existing entity in the repository.
+    /// </summary>
+    /// <param name="entity">The entity to be updated.</param>
+    void Update(TEntity entity);
+
+    /// <summary>
+    /// Deletes an entity from the repository.
+    /// </summary>
+    /// <param name="entity">The entity to be deleted.</param>
+    void Delete(TEntity entity);
+}
