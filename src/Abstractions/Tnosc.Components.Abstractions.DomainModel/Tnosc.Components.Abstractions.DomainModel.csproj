@@ -5,5 +5,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+ <PropertyGroup>
+    <PackageId>Tnosc.Components.Abstractrions.DomainModel</PackageId>
+    <Authors>Ahmed HEDFI</Authors>
+     <Description>Defining the abstractions in the Domain Model layer</Description>
+    <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
+    <PackageLicenseExpression>LGPL-2.0-only</PackageLicenseExpression>
+    <PackageTags>Entity AggregateRoot DomainEvent</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 </Project>
