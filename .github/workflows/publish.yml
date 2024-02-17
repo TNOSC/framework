@@ -14,7 +14,7 @@ on:
       - published    # Run the workflow when a new GitHub release is published
 
 env:
-  VERSION: 0.0.6
+  VERSION: 0.0.7
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: true
   NuGetDirectory: ${{ github.workspace}}/nuget
