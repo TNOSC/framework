@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 
 namespace Tnosc.Components.Abstractions.Module;
-
 /// <summary>
 /// Represents a modular component in the application.
 /// </summary>

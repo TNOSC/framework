@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Tnosc.Components.Abstractions.Module;
 
 namespace Tnosc.Components.Infrastructure.Module;
-
 /// <summary>
 /// Utility class for loading assemblies and extracting modules.
 /// </summary>
