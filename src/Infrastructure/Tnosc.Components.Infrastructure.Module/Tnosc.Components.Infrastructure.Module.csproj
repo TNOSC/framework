@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.module\Tnosc.Components.Abstractions.Module.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Module\Tnosc.Components.Abstractions.Module.csproj" />
   </ItemGroup>
     <PropertyGroup>
     <PackageId>Tnosc.Components.Infrastructure.Module</PackageId>
