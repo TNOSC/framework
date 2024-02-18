@@ -15,7 +15,7 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-using Tnosc.Components.Abstractrions.ApplicationService.Commands;
+using Tnosc.Components.Abstractions.ApplicationService.Commands;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Commands;

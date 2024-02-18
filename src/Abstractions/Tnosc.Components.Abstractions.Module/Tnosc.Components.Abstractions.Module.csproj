@@ -12,7 +12,7 @@
      <FrameworkReference Include="Microsoft.AspNetCore.App" />
  </ItemGroup>
   <PropertyGroup>
-    <PackageId>Tnosc.Components.Abstractrions.Module</PackageId>
+    <PackageId>Tnosc.Components.Abstractions.Module</PackageId>
     <Authors>Ahmed HEDFI</Authors>
      <Description>Defining the abstractions in module</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>

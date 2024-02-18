@@ -15,19 +15,18 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Events;
+namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
-/// Represents an interface for an event handler responsible for handling a specific type of event asynchronously.
+/// Represents an interface for a query dispatcher responsible for executing queries asynchronously.
 /// </summary>
-/// <typeparam name="TEvent">Type of the event to be handled.</typeparam>
-public interface IEventHandler<in TEvent> where TEvent : class, IEvent
+public interface IQueryDispatcher
 {
     /// <summary>
-    /// Handles the specified event asynchronously.
+    /// Executes the specified query asynchronously.
     /// </summary>
-    /// <param name="event">The event to be handled.</param>
+    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
+    /// <param name="query">The query to be executed.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
-    Task HandleAsync(TEvent @event, CancellationToken cancellationToken = default);
+    /// <returns>A task representing the asynchronous operation with the query result.</returns>
+    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default);
 }
-

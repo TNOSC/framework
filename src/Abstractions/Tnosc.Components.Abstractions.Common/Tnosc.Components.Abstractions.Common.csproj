@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
  <PropertyGroup>
-    <PackageId>Tnosc.Components.Abstractrions.Common</PackageId>
+    <PackageId>Tnosc.Components.Abstractions.Common</PackageId>
     <Authors>Ahmed HEDFI</Authors>
     <Description>Defining the common absractions</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>

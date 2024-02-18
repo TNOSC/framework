@@ -15,18 +15,19 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Queries;
+namespace Tnosc.Components.Abstractions.ApplicationService.Commands;
 /// <summary>
-/// Represents an interface for a query dispatcher responsible for executing queries asynchronously.
+/// Represents an interface for a command dispatcher responsible for sending commands asynchronously.
 /// </summary>
-public interface IQueryDispatcher
+public interface ICommandDispatcher
 {
     /// <summary>
-    /// Executes the specified query asynchronously.
+    /// Sends a specified command asynchronously.
     /// </summary>
-    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-    /// <param name="query">The query to be executed.</param>
+    /// <typeparam name="TCommand">Type of the command to be sent.</typeparam>
+    /// <param name="command">The command to be sent.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation with the query result.</returns>
-    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default);
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task SendAsync<TCommand>(TCommand command, CancellationToken cancellationToken = default) 
+            where TCommand : class, ICommand;
 }

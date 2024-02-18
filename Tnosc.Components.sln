@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8AC3B64A-BAE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractrions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractrions.ApplicationService\Tnosc.Components.Abstractrions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractions.ApplicationService\Tnosc.Components.Abstractions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}"
 EndProject

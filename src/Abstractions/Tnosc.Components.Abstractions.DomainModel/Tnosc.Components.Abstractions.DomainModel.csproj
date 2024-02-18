@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
  <PropertyGroup>
-    <PackageId>Tnosc.Components.Abstractrions.DomainModel</PackageId>
+    <PackageId>Tnosc.Components.Abstractions.DomainModel</PackageId>
     <Authors>Ahmed HEDFI</Authors>
      <Description>Defining the abstractions in the Domain Model layer</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>

@@ -15,18 +15,19 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Commands;
+namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
-/// Represents an interface for a command handler responsible for handling a specific type of command asynchronously.
+/// Represents an interface for a query handler responsible for handling a specific type of query and returning a result asynchronously.
 /// </summary>
-/// <typeparam name="TCommand">Type of the command to be handled.</typeparam>
-public interface ICommandHandler<in TCommand> where TCommand : class, ICommand
+/// <typeparam name="TQuery">Type of the query to be handled.</typeparam>
+/// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
+public interface IQueryHandler<in TQuery, TResult> where TQuery : class, IQuery<TResult>
 {
     /// <summary>
-    /// Handles the specified command asynchronously.
+    /// Handles the specified query asynchronously and returns the result.
     /// </summary>
-    /// <param name="command">The command to be handled.</param>
+    /// <param name="query">The query to be handled.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
-    Task HandleAsync(TCommand command, CancellationToken cancellationToken = default);
+    /// <returns>A task representing the asynchronous operation with the query result.</returns>
+    Task<TResult> HandleAsync(TQuery query, CancellationToken cancellationToken = default);
 }

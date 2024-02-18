@@ -15,20 +15,19 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Events;
-
+namespace Tnosc.Components.Abstractions.ApplicationService.Events;
 /// <summary>
-/// Represents an interface for an event dispatcher responsible for publishing events asynchronously.
+/// Represents an interface for an event handler responsible for handling a specific type of event asynchronously.
 /// </summary>
-public interface IEventDispatcher
+/// <typeparam name="TEvent">Type of the event to be handled.</typeparam>
+public interface IEventHandler<in TEvent> where TEvent : class, IEvent
 {
     /// <summary>
-    /// Publishes a specified event asynchronously.
+    /// Handles the specified event asynchronously.
     /// </summary>
-    /// <typeparam name="TEvent">Type of the event to be published.</typeparam>
-    /// <param name="event">The event to be published.</param>
+    /// <param name="event">The event to be handled.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    Task PublishAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default)
-        where TEvent : class, IEvent;
+    Task HandleAsync(TEvent @event, CancellationToken cancellationToken = default);
 }
+

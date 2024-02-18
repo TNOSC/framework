@@ -15,10 +15,10 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Commands;
+namespace Tnosc.Components.Abstractions.ApplicationService.Events;
 /// <summary>
-/// Represents a marker for commands.
+/// Represents a marker for events.
 /// </summary>
-public interface ICommand
+public interface IEvent
 {
 }

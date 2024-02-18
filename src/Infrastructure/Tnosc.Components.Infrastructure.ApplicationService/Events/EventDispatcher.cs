@@ -16,7 +16,7 @@
  */
 
 using Microsoft.Extensions.DependencyInjection;
-using Tnosc.Components.Abstractrions.ApplicationService.Events;
+using Tnosc.Components.Abstractions.ApplicationService.Events;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Events;
 
