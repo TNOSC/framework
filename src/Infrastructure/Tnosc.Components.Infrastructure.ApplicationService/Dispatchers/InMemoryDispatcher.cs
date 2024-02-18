@@ -1,7 +1,7 @@
-using Tnosc.Components.Abstractrions.ApplicationService.Commands;
-using Tnosc.Components.Abstractrions.ApplicationService.Dispatchers;
-using Tnosc.Components.Abstractrions.ApplicationService.Events;
-using Tnosc.Components.Abstractrions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.ApplicationService.Commands;
+using Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
+using Tnosc.Components.Abstractions.ApplicationService.Events;
+using Tnosc.Components.Abstractions.ApplicationService.Queries;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Dispatchers;
 /// <summary>

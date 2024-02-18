@@ -11,7 +11,7 @@
     <ProjectReference Include="..\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj" />
   </ItemGroup>
    <PropertyGroup>
-    <PackageId>Tnosc.Components.Abstractrions.Database</PackageId>
+    <PackageId>Tnosc.Components.Abstractions.Database</PackageId>
     <Authors>Ahmed HEDFI</Authors>
      <Description>Defining the abstractions in the Persistence layer</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>

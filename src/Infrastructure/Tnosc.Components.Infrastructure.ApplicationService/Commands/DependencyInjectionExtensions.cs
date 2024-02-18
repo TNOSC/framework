@@ -17,7 +17,7 @@
 
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using Tnosc.Components.Abstractrions.ApplicationService.Commands;
+using Tnosc.Components.Abstractions.ApplicationService.Commands;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Commands;
 /// <summary>

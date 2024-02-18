@@ -15,7 +15,7 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Queries;
+namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
 /// Represents a marker for queries.
 /// </summary>

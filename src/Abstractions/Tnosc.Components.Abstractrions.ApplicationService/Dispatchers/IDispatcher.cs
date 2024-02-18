@@ -15,11 +15,11 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
  
-using Tnosc.Components.Abstractrions.ApplicationService.Commands;
-using Tnosc.Components.Abstractrions.ApplicationService.Events;
-using Tnosc.Components.Abstractrions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.ApplicationService.Commands;
+using Tnosc.Components.Abstractions.ApplicationService.Events;
+using Tnosc.Components.Abstractions.ApplicationService.Queries;
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Dispatchers;
+namespace Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 /// <summary>
 /// Represents a general-purpose dispatcher interface for sending commands, publishing events, and executing queries asynchronously.
 /// </summary>

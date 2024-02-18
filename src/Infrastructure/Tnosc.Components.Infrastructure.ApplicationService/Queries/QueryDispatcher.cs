@@ -16,7 +16,7 @@
  */
 
 using Microsoft.Extensions.DependencyInjection;
-using Tnosc.Components.Abstractrions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.ApplicationService.Queries;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Queries;
 /// <summary>

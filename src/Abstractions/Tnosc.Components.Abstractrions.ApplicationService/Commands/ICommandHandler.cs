@@ -15,7 +15,7 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Commands;
+namespace Tnosc.Components.Abstractions.ApplicationService.Commands;
 /// <summary>
 /// Represents an interface for a command handler responsible for handling a specific type of command asynchronously.
 /// </summary>

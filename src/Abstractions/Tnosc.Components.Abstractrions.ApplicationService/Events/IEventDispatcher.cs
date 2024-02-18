@@ -15,7 +15,7 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Abstractrions.ApplicationService.Events;
+namespace Tnosc.Components.Abstractions.ApplicationService.Events;
 
 /// <summary>
 /// Represents an interface for an event dispatcher responsible for publishing events asynchronously.
