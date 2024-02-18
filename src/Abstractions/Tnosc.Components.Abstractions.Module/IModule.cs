@@ -20,7 +20,7 @@ public interface IModule
     /// <remarks>
     /// Implementers can provide custom policies. Defaults to null if not overridden.
     /// </remarks>
-    IEnumerable<string> Policies => null;
+    IEnumerable<string>? Policies => null;
 
     /// <summary>
     /// Registers services related to the module.
