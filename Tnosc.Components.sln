@@ -7,37 +7,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8AC3B64A-BAE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractions.ApplicationService\Tnosc.Components.Abstractions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractions.ApplicationService", "src\Abstractions\Tnosc.Components.Abstractions.ApplicationService\Tnosc.Components.Abstractions.ApplicationService.csproj", "{C94CBEE2-7EFF-4CD1-9503-133636023497}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.ApplicationService", "src\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj", "{8DA0F71E-7338-468E-B3E7-30639C5657BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.ApplicationService", "src\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj", "{8DA0F71E-7338-468E-B3E7-30639C5657BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{01D2A6CA-0205-45DA-8F98-38D1319DF817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Tests", "tests\Tnosc.Components.Tests\Tnosc.Components.Tests.csproj", "{76F3403F-2EBA-4EFB-AC86-BEF29FEF94DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Tests", "tests\Tnosc.Components.Tests\Tnosc.Components.Tests.csproj", "{76F3403F-2EBA-4EFB-AC86-BEF29FEF94DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.Database", "src\Infrastructure\Tnosc.Components.Infrastructure.Database\Tnosc.Components.Infrastructure.Database.csproj", "{9270E18E-8ACB-4D87-BFF6-F08A73B4BF32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.Database", "src\Infrastructure\Tnosc.Components.Infrastructure.Database\Tnosc.Components.Infrastructure.Database.csproj", "{9270E18E-8ACB-4D87-BFF6-F08A73B4BF32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.Database", "src\Abstractions\Tnosc.Components.Abstractions.Database\Tnosc.Components.Abstractions.Database.csproj", "{56220BCE-8B68-471D-8903-48345A46329B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractions.Database", "src\Abstractions\Tnosc.Components.Abstractions.Database\Tnosc.Components.Abstractions.Database.csproj", "{56220BCE-8B68-471D-8903-48345A46329B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.Common", "src\Abstractions\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj", "{DCDC7263-1C31-4F92-ABBC-7E165474CD6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractions.Common", "src\Abstractions\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj", "{DCDC7263-1C31-4F92-ABBC-7E165474CD6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.DomainModel", "src\Abstractions\Tnosc.Components.Abstractions.DomainModel\Tnosc.Components.Abstractions.DomainModel.csproj", "{C846EAD9-9FC1-42F0-B628-D87664306D56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractions.DomainModel", "src\Abstractions\Tnosc.Components.Abstractions.DomainModel\Tnosc.Components.Abstractions.DomainModel.csproj", "{C846EAD9-9FC1-42F0-B628-D87664306D56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.Common", "src\Infrastructure\Tnosc.Components.Infrastructure.Common\Tnosc.Components.Infrastructure.Common.csproj", "{E01E25C2-A698-4D40-80DE-53F4325ECBF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.Common", "src\Infrastructure\Tnosc.Components.Infrastructure.Common\Tnosc.Components.Infrastructure.Common.csproj", "{E01E25C2-A698-4D40-80DE-53F4325ECBF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.Module", "src\Infrastructure\Tnosc.Components.Infrastructure.Module\Tnosc.Components.Infrastructure.Module.csproj", "{F57C7E69-3B43-43BE-B5D3-39C06E0A2CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.Module", "src\Infrastructure\Tnosc.Components.Infrastructure.Module\Tnosc.Components.Infrastructure.Module.csproj", "{F57C7E69-3B43-43BE-B5D3-39C06E0A2CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.Module", "src\Abstractions\Tnosc.Components.Abstractions.Module\Tnosc.Components.Abstractions.Module.csproj", "{6E483E54-DC84-403F-9ED4-E83625692F76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractions.Module", "src\Abstractions\Tnosc.Components.Abstractions.Module\Tnosc.Components.Abstractions.Module.csproj", "{6E483E54-DC84-403F-9ED4-E83625692F76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Framework.Module.Core", "src\Modules\Tnosc.Framework.Module.Core\Tnosc.Framework.Module.Core.csproj", "{11802870-37BE-448C-8AB3-85214B6F3440}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{765743BF-EB46-4C09-B4E6-B4C84AE3A0A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.Api", "src\Infrastructure\Tnosc.Components.Infrastructure.Api\Tnosc.Components.Infrastructure.Api.csproj", "{0F225F69-1975-4745-91F9-2E0C7648EEDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C94CBEE2-7EFF-4CD1-9503-133636023497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -80,6 +83,17 @@ Global
 		{6E483E54-DC84-403F-9ED4-E83625692F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E483E54-DC84-403F-9ED4-E83625692F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E483E54-DC84-403F-9ED4-E83625692F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11802870-37BE-448C-8AB3-85214B6F3440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11802870-37BE-448C-8AB3-85214B6F3440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11802870-37BE-448C-8AB3-85214B6F3440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11802870-37BE-448C-8AB3-85214B6F3440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F225F69-1975-4745-91F9-2E0C7648EEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F225F69-1975-4745-91F9-2E0C7648EEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F225F69-1975-4745-91F9-2E0C7648EEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F225F69-1975-4745-91F9-2E0C7648EEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB} = {8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}
@@ -94,5 +108,11 @@ Global
 		{E01E25C2-A698-4D40-80DE-53F4325ECBF7} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
 		{F57C7E69-3B43-43BE-B5D3-39C06E0A2CD5} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
 		{6E483E54-DC84-403F-9ED4-E83625692F76} = {93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}
+		{11802870-37BE-448C-8AB3-85214B6F3440} = {765743BF-EB46-4C09-B4E6-B4C84AE3A0A4}
+		{765743BF-EB46-4C09-B4E6-B4C84AE3A0A4} = {8AC3B64A-BAE9-4C7C-9724-40469DE7ECE1}
+		{0F225F69-1975-4745-91F9-2E0C7648EEDC} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8315D19-A47F-4D74-85FD-08CFADFC5CC4}
 	EndGlobalSection
 EndGlobal
