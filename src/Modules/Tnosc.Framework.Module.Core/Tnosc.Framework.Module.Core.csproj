@@ -1,23 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
-  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Module\Tnosc.Components.Abstractions.Module.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Api\Tnosc.Components.Infrastructure.Api.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj" />
   </ItemGroup>
   <PropertyGroup>
-    <PackageId>Tnosc.Components.Infrastructure.Module</PackageId>
+    <PackageId>Tnosc.Framework.Module.Core</PackageId>
     <Authors>Ahmed HEDFI</Authors>
-    <Description>Implementing module builiding blocks</Description>
+    <Description>Registering the services and middlewares in core module</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-2.0-only</PackageLicenseExpression>
-    <PackageTags>Module</PackageTags>
+    <PackageTags>Api</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <PackageIcon>icon.png</PackageIcon>
