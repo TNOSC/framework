@@ -27,6 +27,8 @@ using Tnosc.Components.Infrastructure.ApplicationService.Dispatchers;
 using Tnosc.Components.Infrastructure.ApplicationService.Commands;
 using Tnosc.Components.Infrastructure.ApplicationService.Queries;
 using Tnosc.Components.Infrastructure.ApplicationService.Events;
+using Tnosc.Components.Infrastructure.Context;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Tnosc.Framework.Module.Core;
 /// <summary>
@@ -73,14 +75,15 @@ public sealed class CoreModule : IModule
             {
                 continue;
             }
-
-            if (!bool.Parse(value))
+            
+            if (value is not null && !bool.Parse(value))
             {
                 disabledModules.Add(key.Split(":")[0]);
             }
         }
 
         // Add core services
+        services.AddContext();
         services.AddMemoryCache();
         services.AddHttpClient();
         services.AddCommands(_assemblies);
@@ -119,7 +122,11 @@ public sealed class CoreModule : IModule
     /// <param name="app">The application builder to configure middleware.</param>
     public void Use(IApplicationBuilder app)
     {
-        // Currently, there is no specific middleware configuration for the core module
-        // You can add middleware configuration specific to the core module here if needed
+        app.UseForwardedHeaders(new ForwardedHeadersOptions
+        {
+            ForwardedHeaders = ForwardedHeaders.All
+        });
+        app.UseCorrelationId();
+        app.UseContext();
     }
 }
