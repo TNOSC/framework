@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Tnosc.Components.Abstractions.Context</PackageId>
+    <Authors>Ahmed HEDFI</Authors>
+    <Description>Declaring abstraction for the context</Description>
+    <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
+    <PackageLicenseExpression>LGPL-2.0-only</PackageLicenseExpression>
+    <PackageTags>context</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+</Project>

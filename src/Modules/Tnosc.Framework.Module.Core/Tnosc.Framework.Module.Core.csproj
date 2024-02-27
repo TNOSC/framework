@@ -10,6 +10,7 @@
     <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Module\Tnosc.Components.Abstractions.Module.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Api\Tnosc.Components.Infrastructure.Api.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Context\Tnosc.Components.Infrastructure.Context.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <PackageId>Tnosc.Framework.Module.Core</PackageId>
@@ -23,6 +24,6 @@
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
