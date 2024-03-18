@@ -18,6 +18,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Tnosc.Components.Abstractions.ApplicationService.Events;
+using Tnosc.Components.Infrastructure.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Events;
 /// <summary>
@@ -40,7 +41,8 @@ public static class DependencyInjectionExtensions
         services.Scan(scan => scan
             .FromAssemblies(assemblies)
             .AddClasses(classes => classes
-                .AssignableTo(typeof(IEventHandler<>)))
+                .AssignableTo(typeof(IEventHandler<>))
+                .WithoutAttribute<DecoratorAttribute>())
             .AsImplementedInterfaces()
             .WithScopedLifetime());
 

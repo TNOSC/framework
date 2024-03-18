@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tnosc.Components.Infrastructure.Common\Tnosc.Components.Infrastructure.Common.csproj" />
-  </ItemGroup>
+  
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Tnosc.Components.Infrastructure.Common\Tnosc.Components.Infrastructure.Common.csproj" />
+  </ItemGroup>
+  
   <PropertyGroup>
     <PackageId>Tnosc.Components.Infrastructure.Api</PackageId>
     <Authors>Ahmed HEDFI</Authors>
@@ -25,4 +27,5 @@
   <ItemGroup>
     <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
+  
 </Project>

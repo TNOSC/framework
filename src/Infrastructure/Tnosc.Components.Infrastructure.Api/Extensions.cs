@@ -25,7 +25,7 @@ namespace Tnosc.Components.Infrastructure.Api;
 /// </summary>
 public static class Extensions
 {
-    public const string Cors = "cors";
+    public const string CorsSectionName = "cors";
     /// <summary>
     /// Adds a Cross-Origin Resource Sharing (CORS) policy to the service collection based on the configuration provided.
     /// </summary>
@@ -35,7 +35,7 @@ public static class Extensions
     public static IServiceCollection AddCorsPolicy(this IServiceCollection services, IConfiguration configuration)
     {
         // Retrieve the CORS configuration section from the overall configuration
-        var section = configuration.GetSection(Cors);
+        var section = configuration.GetSection(CorsSectionName);
 
         // Get the CORS options from the configuration section
         var corsOptions = section.GetOptions<CorsOptions>();
@@ -50,7 +50,7 @@ public static class Extensions
             var exposedHeaders = corsOptions.ExposedHeaders ?? Enumerable.Empty<string>();
 
             // Add a CORS policy named "cors"
-            cors.AddPolicy(Cors, corsBuilder =>
+            cors.AddPolicy(CorsSectionName, corsBuilder =>
             {
                 // Convert allowed origins to an array
                 var origins = allowedOrigins.ToArray();
