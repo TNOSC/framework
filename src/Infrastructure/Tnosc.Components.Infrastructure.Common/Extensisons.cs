@@ -34,7 +34,7 @@ public static class Extensisons
     public static string GetModuleName(this object value)
        => value?.GetType().GetModuleName() ?? string.Empty;
 
-    public static string GetModuleName(this Type type, string namespacePart = "Modules", int splitIndex = 2)
+    public static string GetModuleName(this Type type, string namespacePart = "Module", int splitIndex = 2)
     {
         if (type?.Namespace is null)
         {

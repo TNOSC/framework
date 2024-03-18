@@ -1,27 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Api\Tnosc.Components.Abstractions.Api.csproj" />
-    <ProjectReference Include="..\Tnosc.Components.Infrastructure.Common\Tnosc.Components.Infrastructure.Common.csproj" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
-  
+
   <PropertyGroup>
-    <PackageId>Tnosc.Components.Infrastructure.Api</PackageId>
+    <PackageId>Tnosc.Components.Abstractions.Api</PackageId>
     <Authors>Ahmed HEDFI</Authors>
-    <Description>Implementing the common absractions in Api layer</Description>
+    <Description>Defining the abstractions in the Api layer</Description>
     <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-2.0-only</PackageLicenseExpression>
-    <PackageTags>Api</PackageTags>
+    <PackageTags>Minimal Api</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

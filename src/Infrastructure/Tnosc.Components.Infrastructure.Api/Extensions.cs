@@ -18,6 +18,9 @@
 using Tnosc.Components.Infrastructure.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.CompilerServices;
+using System.Reflection;
+using Tnosc.Components.Abstractions.Api;
 
 namespace Tnosc.Components.Infrastructure.Api;
 /// <summary>
@@ -72,6 +75,26 @@ public static class Extensions
                     .WithExposedHeaders(exposedHeaders.ToArray());
             });
         });
+    }
+
+    /// <summary>
+    /// Adds endpoints to the service collection based on types found in the specified assemblies.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the endpoints to.</param>
+    /// <param name="assemblies">The assemblies to scan for endpoint types.</param>
+    public static void AddEndpoints(this IServiceCollection services, IEnumerable<Assembly> assemblies)
+    {
+        // Retrieve types that implement the IEndpoint interface from the specified assemblies
+        IReadOnlyCollection<IEndpoint> endpoints = assemblies
+            .SelectMany(x => x.GetTypes())
+            .Where(x => typeof(IEndpoint).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+            .OrderBy(x => x.Name)
+            .Select(Activator.CreateInstance)
+            .Cast<IEndpoint>()
+            .ToList();
+
+        // Register the endpoints as singletons in the service collection
+        services.AddSingleton(endpoints);
     }
 }
 
