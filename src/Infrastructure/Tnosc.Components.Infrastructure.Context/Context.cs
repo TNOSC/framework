@@ -58,7 +58,8 @@ public class Context : IContext
     /// <summary>
     /// Initializes a new instance of the <see cref="Context"/> class with default values.
     /// </summary>
-    public Context() : this(Guid.NewGuid(), $"{Guid.NewGuid():N}", null)
+    public Context() 
+        : this(Guid.NewGuid(), $"{Guid.NewGuid():N}", null)
     {
     }
 
@@ -66,7 +67,8 @@ public class Context : IContext
     /// Initializes a new instance of the <see cref="Context"/> class based on an <see cref="HttpContext"/>.
     /// </summary>
     /// <param name="context">The HttpContext representing the current request context.</param>
-    public Context(HttpContext context) : this(context.TryGetCorrelationId(), context.TraceIdentifier,
+    public Context(HttpContext context) 
+        : this(context.TryGetCorrelationId(), context.TraceIdentifier,
         new IdentityContext(context.User), context.GetUserIpAddress(),
         context.Request.Headers["user-agent"])
     {

@@ -15,11 +15,12 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+using Microsoft.AspNetCore.HttpOverrides;
 using Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 using Tnosc.Components.Abstractions.Module;
 using Tnosc.Components.Infrastructure.Api;
@@ -27,8 +28,9 @@ using Tnosc.Components.Infrastructure.ApplicationService.Dispatchers;
 using Tnosc.Components.Infrastructure.ApplicationService.Commands;
 using Tnosc.Components.Infrastructure.ApplicationService.Queries;
 using Tnosc.Components.Infrastructure.ApplicationService.Events;
+using Tnosc.Components.Infrastructure.Logging;
 using Tnosc.Components.Infrastructure.Context;
-using Microsoft.AspNetCore.HttpOverrides;
+using Extensions = Tnosc.Components.Infrastructure.Api.Extensions;
 
 namespace Tnosc.Framework.Module.Core;
 /// <summary>
@@ -83,7 +85,9 @@ public sealed class CoreModule : IModule
         }
 
         // Add core services
+        services.AddCorsPolicy(configuration);
         services.AddContext();
+        services.AddLoggingDecorators();
         services.AddMemoryCache();
         services.AddHttpClient();
         services.AddCommands(_assemblies);
@@ -126,7 +130,9 @@ public sealed class CoreModule : IModule
         {
             ForwardedHeaders = ForwardedHeaders.All
         });
+        app.UseCors(Extensions.CorsSectionName);
         app.UseCorrelationId();
         app.UseContext();
+        app.UseLogging();
     }
 }

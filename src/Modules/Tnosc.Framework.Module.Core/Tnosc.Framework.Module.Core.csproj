@@ -11,6 +11,7 @@
     <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Api\Tnosc.Components.Infrastructure.Api.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.ApplicationService\Tnosc.Components.Infrastructure.ApplicationService.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Context\Tnosc.Components.Infrastructure.Context.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Tnosc.Components.Infrastructure.Logging\Tnosc.Components.Infrastructure.Logging.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <PackageId>Tnosc.Framework.Module.Core</PackageId>

@@ -4,12 +4,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Database\Tnosc.Components.Abstractions.Database.csproj" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
   </ItemGroup>
+  
   <PropertyGroup>
     <PackageId>Tnosc.Components.Infrastructure.Database</PackageId>
     <Authors>Ahmed HEDFI</Authors>
@@ -24,8 +31,5 @@
   <ItemGroup>
     <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj" />
-    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Database\Tnosc.Components.Abstractions.Database.csproj" />
-  </ItemGroup>
+ 
 </Project>
