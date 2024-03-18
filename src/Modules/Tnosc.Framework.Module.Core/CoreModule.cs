@@ -29,6 +29,7 @@ using Tnosc.Components.Infrastructure.ApplicationService.Queries;
 using Tnosc.Components.Infrastructure.ApplicationService.Events;
 using Tnosc.Components.Infrastructure.Context;
 using Microsoft.AspNetCore.HttpOverrides;
+using Extensions = Tnosc.Components.Infrastructure.Api.Extensions;
 
 namespace Tnosc.Framework.Module.Core;
 /// <summary>
@@ -83,6 +84,7 @@ public sealed class CoreModule : IModule
         }
 
         // Add core services
+        services.AddCorsPolicy(configuration);
         services.AddContext();
         services.AddMemoryCache();
         services.AddHttpClient();
@@ -126,6 +128,7 @@ public sealed class CoreModule : IModule
         {
             ForwardedHeaders = ForwardedHeaders.All
         });
+        app.UseCors(Extensions.Cors);
         app.UseCorrelationId();
         app.UseContext();
     }
