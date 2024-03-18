@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -7,12 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Context\Tnosc.Components.Abstractions.Context.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PackageId>Tnosc.Components.Infrastructure.Context</PackageId>
+    <Authors>Ahmed HEDFI</Authors>
+    <Description>Defining Context</Description>
+    <PackageProjectUrl>https://github.com/TNOSC/framework</PackageProjectUrl>
+    <PackageLicenseExpression>LGPL-2.0-only</PackageLicenseExpression>
+    <PackageTags>PostgreSQL DbContext</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Abstractions\Tnosc.Components.Abstractions.Context\Tnosc.Components.Abstractions.Context.csproj" />
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
-
 </Project>
