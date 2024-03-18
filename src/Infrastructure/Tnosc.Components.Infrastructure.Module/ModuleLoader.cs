@@ -33,6 +33,7 @@ public static class ModuleLoader
     /// <returns>A list of loaded assemblies.</returns>
     public static IList<Assembly> LoadAssemblies(IConfiguration configuration, string modulePart)
     {
+
         var assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
 
         // Get locations of already loaded assemblies

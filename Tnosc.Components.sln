@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Abstractio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.Context", "src\Infrastructure\Tnosc.Components.Infrastructure.Context\Tnosc.Components.Infrastructure.Context.csproj", "{EC46C407-3715-4212-9AEB-11A9FD71B234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Infrastructure.Logging", "src\Infrastructure\Tnosc.Components.Infrastructure.Logging\Tnosc.Components.Infrastructure.Logging.csproj", "{3BAEA521-597B-4B56-8AC9-E3894FB20E0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tnosc.Components.Infrastructure.Logging", "src\Infrastructure\Tnosc.Components.Infrastructure.Logging\Tnosc.Components.Infrastructure.Logging.csproj", "{3BAEA521-597B-4B56-8AC9-E3894FB20E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tnosc.Components.Abstractions.Api", "src\Abstractions\Tnosc.Components.Abstractions.Api\Tnosc.Components.Abstractions.Api.csproj", "{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{3BAEA521-597B-4B56-8AC9-E3894FB20E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BAEA521-597B-4B56-8AC9-E3894FB20E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BAEA521-597B-4B56-8AC9-E3894FB20E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +138,7 @@ Global
 		{3D61E9E3-3A1E-4A81-882E-6BEC231F7293} = {93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}
 		{EC46C407-3715-4212-9AEB-11A9FD71B234} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
 		{3BAEA521-597B-4B56-8AC9-E3894FB20E0E} = {CE050A2E-C249-4DAA-B6E7-BE8A4619FC20}
+		{7FFF06AE-B212-4BE3-8DAC-AC474711CEB2} = {93A3DEA7-3AA6-47E9-9D36-9E5C222AE3AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8315D19-A47F-4D74-85FD-08CFADFC5CC4}
