@@ -18,9 +18,10 @@
 using Tnosc.Components.Infrastructure.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Runtime.CompilerServices;
-using System.Reflection;
-using Tnosc.Components.Abstractions.Api;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Tnosc.Components.Abstractions.Common.Results;
+using Tnosc.Components.Infrastructure.Common.Results;
 
 namespace Tnosc.Components.Infrastructure.Api;
 /// <summary>
@@ -78,23 +79,36 @@ public static class Extensions
     }
 
     /// <summary>
-    /// Adds endpoints to the service collection based on types found in the specified assemblies.
+    /// Matches the result and returns the output based on whether the operation is successful or not.
     /// </summary>
-    /// <param name="services">The <see cref="IServiceCollection"/> to add the endpoints to.</param>
-    /// <param name="assemblies">The assemblies to scan for endpoint types.</param>
-    public static void AddEndpoints(this IServiceCollection services, IEnumerable<Assembly> assemblies)
+    /// <typeparam name="TOut">The type of output to return.</typeparam>
+    /// <param name="result">The result to match.</param>
+    /// <param name="onSuccess">The function to execute if the operation is successful.</param>
+    /// <param name="onFailure">The function to execute if the operation fails.</param>
+    /// <returns>The output returned by either <paramref name="onSuccess"/> or <paramref name="onFailure"/> based on the result.</returns>
+    public static TOut Match<TOut>(
+        this Result result,
+        Func<TOut> onSuccess,
+        Func<Result, TOut> onFailure)
     {
-        // Retrieve types that implement the IEndpoint interface from the specified assemblies
-        IReadOnlyCollection<IEndpoint> endpoints = assemblies
-            .SelectMany(x => x.GetTypes())
-            .Where(x => typeof(IEndpoint).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-            .OrderBy(x => x.Name)
-            .Select(Activator.CreateInstance)
-            .Cast<IEndpoint>()
-            .ToList();
-
-        // Register the endpoints as singletons in the service collection
-        services.AddSingleton(endpoints);
+        return result.IsSuccess ? onSuccess() : onFailure(result);
     }
-}
 
+    /// <summary>
+    /// Matches the result with a value and returns the output based on whether the operation is successful or not.
+    /// </summary>
+    /// <typeparam name="TIn">The type of value contained in the result.</typeparam>
+    /// <typeparam name="TOut">The type of output to return.</typeparam>
+    /// <param name="result">The result to match.</param>
+    /// <param name="onSuccess">The function to execute if the operation is successful, taking the result value as input.</param>
+    /// <param name="onFailure">The function to execute if the operation fails, taking the result as input.</param>
+    /// <returns>The output returned by either <paramref name="onSuccess"/> or <paramref name="onFailure"/> based on the result.</returns>
+    public static TOut Match<TIn, TOut>(
+        this Result<TIn> result,
+        Func<TIn, TOut> onSuccess,
+        Func<Result<TIn>, TOut> onFailure)
+    {
+        return result.IsSuccess ? onSuccess(result.Value) : onFailure(result);
+    }
+
+}
