@@ -29,9 +29,9 @@ using Tnosc.Components.Infrastructure.ApplicationService.Commands;
 using Tnosc.Components.Infrastructure.ApplicationService.Queries;
 using Tnosc.Components.Infrastructure.ApplicationService.Events;
 using Tnosc.Components.Infrastructure.Logging;
+using Tnosc.Components.Infrastructure.Common.Services;
 using Tnosc.Components.Infrastructure.Context;
 using Extensions = Tnosc.Components.Infrastructure.Api.Extensions;
-using Tnosc.Components.Abstractions.Api;
 
 namespace Tnosc.Framework.Module.Core;
 /// <summary>
@@ -87,7 +87,7 @@ public sealed class CoreModule : IModule
 
         // Add core services
         services.AddCorsPolicy(configuration);
-        services.AddEndpoints(_assemblies);
+        services.AddHttpContextAccessor();
         services.AddContext();
         services.AddMemoryCache();
         services.AddHttpClient();
@@ -128,7 +128,8 @@ public sealed class CoreModule : IModule
     /// <param name="app">The application builder to configure middleware.</param>
     public void Use(IApplicationBuilder app)
     {
-        var endpoints = app.ApplicationServices.GetRequiredService<IReadOnlyCollection<IEndpoint>>();
+        ServiceLocator.SetServiceProvider(app.ApplicationServices);
+        
         app.UseForwardedHeaders(new ForwardedHeadersOptions
         {
             ForwardedHeaders = ForwardedHeaders.All
@@ -137,12 +138,5 @@ public sealed class CoreModule : IModule
         app.UseCorrelationId();
         app.UseContext();
         app.UseLogging();
-        app.UseEndpoints(ep=>
-        {
-            foreach(var endpoint in endpoints)
-            {
-                endpoint.AddRoutes(ep);
-            }
-        });
     }
 }
