@@ -15,13 +15,17 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Tnosc.Components.Abstractions.Common.Results;
+
 namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
-/// Represents an interface for a query handler responsible for handling a specific type of query and returning a result asynchronously.
+/// Defines a handler for executing queries of type <typeparamref name="TQuery"/> and producing results of type <typeparamref name="TResult"/>.
 /// </summary>
-/// <typeparam name="TQuery">Type of the query to be handled.</typeparam>
-/// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-public interface IQueryHandler<in TQuery, TResult> where TQuery : class, IQuery<TResult>
+/// <typeparam name="TQuery">The type of query to handle.</typeparam>
+/// <typeparam name="TResult">The type of result produced by the query.</typeparam>
+public interface IQueryHandler<in TQuery, TResult>
+    where TQuery : class, IQuery<TResult>
+    where TResult : IResult
 {
     /// <summary>
     /// Handles the specified query asynchronously and returns the result.

@@ -15,18 +15,20 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Tnosc.Components.Abstractions.Common.Results;
+
 namespace Tnosc.Components.Abstractions.ApplicationService.Commands;
-/// <summary>
-/// Represents an interface for a command handler responsible for handling a specific type of command asynchronously.
-/// </summary>
-/// <typeparam name="TCommand">Type of the command to be handled.</typeparam>
-public interface ICommandHandler<in TCommand> where TCommand : class, ICommand
+
+public interface ICommandHandler<in TCommand, TResult> 
+    where TCommand : class, ICommand<TResult>
+    where TResult : IResult
 {
     /// <summary>
-    /// Handles the specified command asynchronously.
+    /// Handles the specified command asynchronously and returns the result.
     /// </summary>
     /// <param name="command">The command to be handled.</param>
     /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
-    Task HandleAsync(TCommand command, CancellationToken cancellationToken = default);
+    /// <returns>A task representing the asynchronous operation with the command result.</returns>
+    Task<TResult> HandleAsync(TCommand command, CancellationToken cancellationToken = default);
+
 }

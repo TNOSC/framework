@@ -17,6 +17,9 @@
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\"/>
+    <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tnosc.Components.Abstractions.Common\Tnosc.Components.Abstractions.Common.csproj" />
   </ItemGroup>
 </Project>

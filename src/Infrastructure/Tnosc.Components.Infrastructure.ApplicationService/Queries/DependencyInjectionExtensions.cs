@@ -18,7 +18,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Tnosc.Components.Abstractions.ApplicationService.Queries;
-using Tnosc.Components.Infrastructure.Common.Attributes;
+using Tnosc.Components.Abstractions.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Queries;
 /// <summary>

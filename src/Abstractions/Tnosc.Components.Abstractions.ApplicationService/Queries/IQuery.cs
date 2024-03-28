@@ -15,11 +15,13 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Tnosc.Components.Abstractions.Common.Results;
+
 namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
-/// Represents a marker for queries.
+/// Represents a query that produces a result of type <typeparamref name="TResult"/>.
 /// </summary>
-/// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-public interface IQuery<TResult>
+/// <typeparam name="TResult">The type of result produced by the query.</typeparam>
+public interface IQuery<TResult> where TResult : IResult
 {
 }

@@ -35,17 +35,7 @@ public sealed class EventDispatcher : IEventDispatcher
     public EventDispatcher(IServiceProvider serviceProvider)
         => _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 
-    /// <summary>
-    /// Publishes the specified event to its corresponding IEventHandler instances for processing.
-    /// </summary>
-    /// <typeparam name="TEvent">Type of the event to be published.</typeparam>
-    /// <param name="event">The event to be published.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation with the event publication.</returns>
-    /// <remarks>
-    /// The method creates a scope, retrieves all IEventHandler instances for the specified event type,
-    /// and invokes their HandleAsync methods concurrently using Task.WhenAll.
-    /// </remarks>
+    /// <inheritdoc/>
     public async Task PublishAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default)
         where TEvent : class, IEvent
     {

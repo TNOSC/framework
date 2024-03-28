@@ -18,20 +18,23 @@
 using Humanizer;
 using Microsoft.Extensions.Logging;
 using Tnosc.Components.Abstractions.ApplicationService.Commands;
+using Tnosc.Components.Abstractions.Common.Attributes;
+using Tnosc.Components.Abstractions.Common.Results;
 using Tnosc.Components.Abstractions.Context;
 using Tnosc.Components.Infrastructure.Common;
-using Tnosc.Components.Infrastructure.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.Logging.Decorators;
 /// <summary>
 /// Decorator for logging command handling operations.
 /// </summary>
 [Decorator]
-public sealed class LoggingCommandHandlerDecorator<T> : ICommandHandler<T> where T : class, ICommand
+public sealed class LoggingCommandHandlerDecorator<TCommand, TResult> : ICommandHandler<TCommand, TResult>
+    where TCommand : class, ICommand<TResult>
+    where TResult : class, IResult
 {
-    private readonly ICommandHandler<T> _handler;
+    private readonly ICommandHandler<TCommand, TResult> _handler;
     private readonly IContext _context;
-    private readonly ILogger<LoggingCommandHandlerDecorator<T>> _logger;
+    private readonly ILogger<LoggingCommandHandlerDecorator<TCommand, TResult>> _logger;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="LoggingCommandHandlerDecorator{T}"/> class.
@@ -41,9 +44,9 @@ public sealed class LoggingCommandHandlerDecorator<T> : ICommandHandler<T> where
     /// <param name="logger">The logger for logging command handling operations.</param>
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="logger"/> is null.</exception>
     public LoggingCommandHandlerDecorator(
-        ICommandHandler<T> handler,
+        ICommandHandler<TCommand, TResult> handler,
         IContext context,
-        ILogger<LoggingCommandHandlerDecorator<T>> logger)
+        ILogger<LoggingCommandHandlerDecorator<TCommand, TResult>> logger)
     {
         _handler = handler;
         _context = context;
@@ -56,7 +59,7 @@ public sealed class LoggingCommandHandlerDecorator<T> : ICommandHandler<T> where
     /// <param name="command">The command to handle.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    public async Task HandleAsync(T command, CancellationToken cancellationToken = default)
+    public async Task<TResult> HandleAsync(TCommand command, CancellationToken cancellationToken = default)
     {
         var module = command.GetModuleName();
         var name = command.GetType().Name.Underscore();
@@ -66,9 +69,10 @@ public sealed class LoggingCommandHandlerDecorator<T> : ICommandHandler<T> where
         var correlationId = _context.CorrelationId;
         _logger.LogInformation("Handling a command: {Name} ({Module}) [Request ID: {RequestId}, Correlation ID: {CorrelationId}, Trace ID: '{TraceId}', User ID: '{UserId}]'...",
             name, module, requestId, correlationId, traceId, userId);
-        await _handler.HandleAsync(command, cancellationToken);
+       var result = await _handler.HandleAsync(command, cancellationToken);
         _logger.LogInformation("Handled a command: {Name} ({Module}) [Request ID: {RequestId}, Correlation ID: {CorrelationId}, Trace ID: '{TraceId}', User ID: '{UserId}']",
             name, module, requestId, correlationId, traceId, userId);
+        return result;
     }
 }
 

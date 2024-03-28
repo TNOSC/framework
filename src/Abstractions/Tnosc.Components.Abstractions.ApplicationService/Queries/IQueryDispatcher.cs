@@ -15,6 +15,8 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Tnosc.Components.Abstractions.Common.Results;
+
 namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 /// <summary>
 /// Represents an interface for a query dispatcher responsible for executing queries asynchronously.
@@ -22,11 +24,13 @@ namespace Tnosc.Components.Abstractions.ApplicationService.Queries;
 public interface IQueryDispatcher
 {
     /// <summary>
-    /// Executes the specified query asynchronously.
+    /// Executes the specified query asynchronously and returns the result.
     /// </summary>
-    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-    /// <param name="query">The query to be executed.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation with the query result.</returns>
-    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default);
+    /// <typeparam name="TResult">The type of result produced by the query.</typeparam>
+    /// <param name="query">The query to execute.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation. The task result contains the query result.</returns>
+    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+        where TResult : IResult;
+
 }
