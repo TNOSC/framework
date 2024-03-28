@@ -28,4 +28,7 @@
   <ItemGroup>
     <None Include="..\..\..\assets\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+  </ItemGroup>
 </Project>

@@ -17,6 +17,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Tnosc.Components.Abstractions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.Common.Results;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Queries;
 /// <summary>
@@ -34,18 +35,9 @@ public sealed class QueryDispatcher : IQueryDispatcher
     public QueryDispatcher(IServiceProvider serviceProvider)
         => _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 
-    /// <summary>
-    /// Dispatches the specified query to its corresponding IQueryHandler for processing.
-    /// </summary>
-    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-    /// <param name="query">The query to be dispatched.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation with the query result.</returns>
-    /// <remarks>
-    /// The method uses reflection to dynamically obtain the corresponding IQueryHandler and invoke its HandleAsync method.
-    /// If the query handler or its HandleAsync method is not found, an InvalidOperationException is thrown.
-    /// </remarks>
+    /// <inheritdoc/>
     public async Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+        where TResult : IResult
     {
         // Create a scoped service provider for resolving the query handler.
         using var scope = _serviceProvider.CreateScope();

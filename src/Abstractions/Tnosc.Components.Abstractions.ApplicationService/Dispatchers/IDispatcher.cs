@@ -18,6 +18,7 @@
 using Tnosc.Components.Abstractions.ApplicationService.Commands;
 using Tnosc.Components.Abstractions.ApplicationService.Events;
 using Tnosc.Components.Abstractions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.Common.Results;
 
 namespace Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 /// <summary>
@@ -26,14 +27,15 @@ namespace Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 public interface IDispatcher
 {
     /// <summary>
-    /// Sends a specified command asynchronously.
+    /// Sends a command asynchronously and returns a result of type <typeparamref name="TResult"/>.
     /// </summary>
-    /// <typeparam name="T">Type of the command to be sent.</typeparam>
-    /// <param name="command">The command to be sent.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
-    Task SendAsync<T>(T command, CancellationToken cancellationToken = default) 
-        where T : class, ICommand;
+    /// <typeparam name="TResult">The type of result produced by executing the command.</typeparam>
+    /// <param name="command">The command to send.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation, containing the result of type <typeparamref name="TResult"/>.</returns>
+    Task<TResult> SendAsync<TResult>(ICommand<TResult> command, CancellationToken cancellationToken = default)
+        where TResult : IResult;
+
     /// <summary>
     /// Publishes a specified event asynchronously.
     /// </summary>
@@ -43,12 +45,15 @@ public interface IDispatcher
     /// <returns>A task representing the asynchronous operation.</returns>
     Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) 
         where T : class, IEvent;
+
     /// <summary>
-    /// Executes the specified query asynchronously.
+    /// Executes a query asynchronously and returns a result of type <typeparamref name="TResult"/>.
     /// </summary>
-    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-    /// <param name="query">The query to be executed.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A task representing the asynchronous operation with the query result.</returns>
-    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default);
+    /// <typeparam name="TResult">The type of result produced by executing the query.</typeparam>
+    /// <param name="query">The query to execute.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation, containing the result of type <typeparamref name="TResult"/>.</returns>
+    Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+        where TResult : IResult;
+
 }

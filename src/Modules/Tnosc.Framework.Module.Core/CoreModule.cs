@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.HttpOverrides;
+using FluentValidation;
 using Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 using Tnosc.Components.Abstractions.Module;
 using Tnosc.Components.Infrastructure.Api;
@@ -31,6 +32,7 @@ using Tnosc.Components.Infrastructure.ApplicationService.Events;
 using Tnosc.Components.Infrastructure.Logging;
 using Tnosc.Components.Infrastructure.Common.Services;
 using Tnosc.Components.Infrastructure.Context;
+using Tnosc.Components.Infrastructure.ApplicationService.Decorators;
 using Extensions = Tnosc.Components.Infrastructure.Api.Extensions;
 
 namespace Tnosc.Framework.Module.Core;
@@ -94,6 +96,8 @@ public sealed class CoreModule : IModule
         services.AddCommands(_assemblies);
         services.AddQueries(_assemblies);
         services.AddEvents(_assemblies);
+        services.AddValidatorsFromAssemblies(_assemblies);
+        services.AddValidatingDecorators();
         services.AddLoggingDecorators();
         services.AddSingleton<IDispatcher, InMemoryDispatcher>();
 

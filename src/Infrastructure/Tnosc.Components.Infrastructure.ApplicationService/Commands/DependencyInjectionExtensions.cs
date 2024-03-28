@@ -18,7 +18,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Tnosc.Components.Abstractions.ApplicationService.Commands;
-using Tnosc.Components.Infrastructure.Common.Attributes;
+using Tnosc.Components.Abstractions.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Commands;
 /// <summary>
@@ -41,7 +41,7 @@ public static class DependencyInjectionExtensions
         services.Scan(scan => scan
             .FromAssemblies(assemblies)
             .AddClasses(classes => classes
-                .AssignableTo(typeof(ICommandHandler<>))
+                .AssignableTo(typeof(ICommandHandler<,>))
              .WithoutAttribute<DecoratorAttribute>())
             .AsImplementedInterfaces()
             .WithScopedLifetime());

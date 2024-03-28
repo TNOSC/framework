@@ -18,10 +18,7 @@
 using Tnosc.Components.Infrastructure.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Tnosc.Components.Abstractions.Common.Results;
-using Tnosc.Components.Infrastructure.Common.Results;
 
 namespace Tnosc.Components.Infrastructure.Api;
 /// <summary>
@@ -87,9 +84,9 @@ public static class Extensions
     /// <param name="onFailure">The function to execute if the operation fails.</param>
     /// <returns>The output returned by either <paramref name="onSuccess"/> or <paramref name="onFailure"/> based on the result.</returns>
     public static TOut Match<TOut>(
-        this Result result,
+        this IResult result,
         Func<TOut> onSuccess,
-        Func<Result, TOut> onFailure)
+        Func<IResult, TOut> onFailure)
     {
         return result.IsSuccess ? onSuccess() : onFailure(result);
     }
@@ -104,9 +101,9 @@ public static class Extensions
     /// <param name="onFailure">The function to execute if the operation fails, taking the result as input.</param>
     /// <returns>The output returned by either <paramref name="onSuccess"/> or <paramref name="onFailure"/> based on the result.</returns>
     public static TOut Match<TIn, TOut>(
-        this Result<TIn> result,
+        this IResult<TIn> result,
         Func<TIn, TOut> onSuccess,
-        Func<Result<TIn>, TOut> onFailure)
+        Func<IResult<TIn>, TOut> onFailure)
     {
         return result.IsSuccess ? onSuccess(result.Value) : onFailure(result);
     }

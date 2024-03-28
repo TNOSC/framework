@@ -2,6 +2,7 @@ using Tnosc.Components.Abstractions.ApplicationService.Commands;
 using Tnosc.Components.Abstractions.ApplicationService.Dispatchers;
 using Tnosc.Components.Abstractions.ApplicationService.Events;
 using Tnosc.Components.Abstractions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.Common.Results;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Dispatchers;
 /// <summary>
@@ -27,33 +28,17 @@ public class InMemoryDispatcher : IDispatcher
         _queryDispatcher = queryDispatcher ?? throw new ArgumentNullException(nameof(queryDispatcher));
     }
 
-    /// <summary>
-    /// Dispatches the specified command for in-memory processing.
-    /// </summary>
-    /// <typeparam name="T">Type of the command to be dispatched.</typeparam>
-    /// <param name="command">The command to be dispatched.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation of command dispatching.</returns>
-    public Task SendAsync<T>(T command, CancellationToken cancellationToken = default) where T : class, ICommand
+    /// <inheritdoc/>
+    public Task<TResult> SendAsync<TResult>(ICommand<TResult> command, CancellationToken cancellationToken = default)
+        where TResult : IResult
         => _commandDispatcher.SendAsync(command, cancellationToken);
 
-    /// <summary>
-    /// Publishes the specified event for in-memory processing.
-    /// </summary>
-    /// <typeparam name="T">Type of the event to be published.</typeparam>
-    /// <param name="event">The event to be published.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation of event publishing.</returns>
+    /// <inheritdoc/>
     public Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : class, IEvent
         => _eventDispatcher.PublishAsync(@event, cancellationToken);
 
-    /// <summary>
-    /// Executes the specified query for in-memory processing.
-    /// </summary>
-    /// <typeparam name="TResult">Type of the result returned by the query.</typeparam>
-    /// <param name="query">The query to be executed.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation of query execution with the query result.</returns>
+    /// <inheritdoc/>
     public Task<TResult> QueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+        where TResult : IResult
         => _queryDispatcher.QueryAsync(query, cancellationToken);
 }

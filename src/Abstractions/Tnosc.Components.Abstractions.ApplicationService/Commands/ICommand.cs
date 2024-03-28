@@ -15,10 +15,12 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+using Tnosc.Components.Abstractions.Common.Results;
 namespace Tnosc.Components.Abstractions.ApplicationService.Commands;
 /// <summary>
-/// Represents a marker for commands.
+/// Represents a command that produces a result of type <typeparamref name="TResult"/>.
 /// </summary>
-public interface ICommand
+/// <typeparam name="TResult">The type of result produced by the command.</typeparam>
+public interface ICommand<TResult> where TResult : IResult
 {
 }

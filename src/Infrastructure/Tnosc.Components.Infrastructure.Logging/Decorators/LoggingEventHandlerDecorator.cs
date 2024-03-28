@@ -18,9 +18,9 @@
 using Humanizer;
 using Microsoft.Extensions.Logging;
 using Tnosc.Components.Abstractions.ApplicationService.Events;
+using Tnosc.Components.Abstractions.Common.Attributes;
 using Tnosc.Components.Abstractions.Context;
 using Tnosc.Components.Infrastructure.Common;
-using Tnosc.Components.Infrastructure.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.Logging.Decorators;
 /// <summary>

@@ -17,6 +17,8 @@
 
 using Tnosc.Components.Abstractions.ApplicationService.Commands;
 using Microsoft.Extensions.DependencyInjection;
+using Tnosc.Components.Abstractions.Common.Results;
+using Tnosc.Components.Abstractions.ApplicationService.Queries;
 
 namespace Tnosc.Components.Infrastructure.ApplicationService.Commands;
 /// <summary>
@@ -36,32 +38,33 @@ public sealed class CommandDispatcher : ICommandDispatcher
     /// <param name="serviceProvider">The dependency injection container providing access to command handlers.</param>
     public CommandDispatcher(IServiceProvider serviceProvider)
         => _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-    
-    /// <summary>
-    /// Dispatches the specified command to its corresponding ICommandHandler for processing.
-    /// </summary>
-    /// <typeparam name="TCommand">Type of the command to be dispatched.</typeparam>
-    /// <param name="command">The command to be dispatched.</param>
-    /// <param name="cancellationToken">Optional cancellation token for task cancellation.</param>
-    /// <returns>A Task representing the asynchronous operation.</returns>
-    /// <remarks>
-    /// If the provided command is null, the method returns early without invoking any handlers.
-    /// The command handler is retrieved from the dependency injection container, and the command is passed for processing.
-    /// </remarks>
-    public async Task SendAsync<TCommand>(TCommand command, CancellationToken cancellationToken = default)
-        where TCommand : class, ICommand
+
+    /// <inheritdoc/>
+    public async Task<TResult> SendAsync<TResult>(ICommand<TResult> command, CancellationToken cancellationToken = default)
+            where TResult : IResult
     {
-        // If the provided command is null, return early without processing.
-        if (command is null)
-            return;
+        // If the provided command is null, throw an exeption.
+        ArgumentNullException.ThrowIfNull(command);
 
         // Create a scoped service provider for resolving the command handler.
         using var scope = _serviceProvider.CreateScope();
 
-        // Retrieve the required command handler for the specified command type.
-        var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<TCommand>>();
+        // Dynamically create the type of the query handler based on the query type and result type.
+        var handlerType = typeof(ICommandHandler<,>).MakeGenericType(command.GetType(), typeof(TResult));
 
-        // Invoke the HandleAsync method on the command handler to process the command asynchronously.
-        await handler.HandleAsync(command, cancellationToken);
+        // Retrieve the query handler instance from the dependency injection container.
+        var handler = scope.ServiceProvider.GetRequiredService(handlerType);
+
+        // Get the MethodInfo for the HandleAsync method of the IQueryHandler interface.
+        var method = handlerType.GetMethod(nameof(IQueryHandler<IQuery<TResult>, TResult>.HandleAsync));
+
+        // If the HandleAsync method is not found, throw an InvalidOperationException.
+        if (method is null)
+            throw new InvalidOperationException($"Query handler for '{typeof(TResult).Name}' is invalid.");
+
+#pragma warning disable CS8600,CS8602 // disables warnings about converting a null literal or a possible null value to a non-nullable type or dereferencing a possibly null reference.
+        // Invoke the HandleAsync method on the query handler and await the result.
+        return await (Task<TResult>)method.Invoke(handler, new object[] { command, cancellationToken });
+#pragma warning restore CS8602,CS8600
     }
 }

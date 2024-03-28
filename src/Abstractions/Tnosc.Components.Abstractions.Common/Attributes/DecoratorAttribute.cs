@@ -15,7 +15,7 @@
  along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Tnosc.Components.Infrastructure.Common.Attributes;
+namespace Tnosc.Components.Abstractions.Common.Attributes;
 /// <summary>
 /// Specifies that a class is a decorator.
 /// </summary>

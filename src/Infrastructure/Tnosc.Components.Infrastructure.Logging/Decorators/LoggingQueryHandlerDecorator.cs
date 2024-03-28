@@ -18,9 +18,10 @@
 using Humanizer;
 using Microsoft.Extensions.Logging;
 using Tnosc.Components.Abstractions.ApplicationService.Queries;
+using Tnosc.Components.Abstractions.Common.Attributes;
+using Tnosc.Components.Abstractions.Common.Results;
 using Tnosc.Components.Abstractions.Context;
 using Tnosc.Components.Infrastructure.Common;
-using Tnosc.Components.Infrastructure.Common.Attributes;
 
 namespace Tnosc.Components.Infrastructure.Logging.Decorators;
 /// <summary>
@@ -29,6 +30,7 @@ namespace Tnosc.Components.Infrastructure.Logging.Decorators;
 [Decorator]
 public sealed class LoggingQueryHandlerDecorator<TQuery, TResult> : IQueryHandler<TQuery, TResult>
     where TQuery : class, IQuery<TResult>
+    where TResult : class, IResult
 {
     private readonly IQueryHandler<TQuery, TResult> _handler;
     private readonly IContext _context;
