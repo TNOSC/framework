@@ -32,7 +32,7 @@ public static class CustomResults
     /// </summary>
     /// <param name="result">The result to generate the problem detail for.</param>
     /// <returns>An <see cref="Microsoft.AspNetCore.Http.IResult"/> representing the problem detail.</returns>
-    public static Microsoft.AspNetCore.Http.IResult Problem(Result result)
+    public static Microsoft.AspNetCore.Http.IResult Problem(Abstractions.Common.Results.IResult result)
     {
         if (result.IsSuccess)
         {
@@ -61,7 +61,7 @@ public static class CustomResults
         };
     }
 
-    private static string GetDetail(Result result) =>
+    private static string GetDetail(Abstractions.Common.Results.IResult result) =>
         result.Error.Type switch
         {
             ErrorType.Validation => result is not ValidationResult ? result.Error.Description : "One or more validations errors",
@@ -94,7 +94,7 @@ public static class CustomResults
             _ => StatusCodes.Status500InternalServerError
         };
 
-    private static Dictionary<string, object?>? GetExtensions(Result result)
+    private static Dictionary<string, object?>? GetExtensions(Abstractions.Common.Results.IResult result)
     {
         var extensions = new Dictionary<string, object?>()
         {
