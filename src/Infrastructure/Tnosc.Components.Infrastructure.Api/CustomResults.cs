@@ -18,7 +18,6 @@
 using Microsoft.AspNetCore.Http;
 using Tnosc.Components.Abstractions.Common.Results;
 using Tnosc.Components.Abstractions.Context;
-using Tnosc.Components.Infrastructure.Common.Results;
 using Tnosc.Components.Infrastructure.Common.Services;
 
 namespace Tnosc.Components.Infrastructure.Api;
@@ -64,7 +63,7 @@ public static class CustomResults
     private static string GetDetail(Abstractions.Common.Results.IResult result) =>
         result.Error.Type switch
         {
-            ErrorType.Validation => result is not ValidationResult ? result.Error.Description : "One or more validations errors",
+            ErrorType.Validation => result is not IValidationResult ? result.Error.Description : "One or more validations errors",
             ErrorType.NotFound => result.Error.Description,
             ErrorType.Unauthorized => result.Error.Description,
             ErrorType.Forbidden => result.Error.Description,
@@ -101,11 +100,10 @@ public static class CustomResults
             { "traceId", ServiceLocator.GetService<IContext>().TraceId }
         };
 
-        if (result is ValidationResult validationResult)
-        {
-            extensions.Add("errors", validationResult.ValidationErrors);
-        }
-
+        if (result is IValidationResult validationResult)
+            extensions.Add("errors", validationResult.ValidationErrors.Select(e => new { Code = e.Code.ToLower(), e.Description }));
+        else
+            extensions.Add("code", result.Error.Code.ToLower());
         return extensions;
     }
 }
